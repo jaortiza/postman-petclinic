@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "b8caee20-6b3a-4733-8d71-bf4ca790d503",
+		"name": "SPRING-PETCLINIC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GETpetTypes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "36b2d261-8107-4900-9d43-79f81a66af99",
+						"exec": [
+							"//Respuesta OK\r",
+							"pm.test(\"200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Se almacena la info en la variable jsonData\r",
+							"var response = pm.response.json();\r",
+							"\r",
+							"\r",
+							"//Tipo animal\r",
+							"pm.test(\"Animal = cat\", function () {\r",
+							"    pm.expect(response[0].name).equal(\"cat\");\r",
+							"});\r",
+							"\r",
+							"//Tipo animal\r",
+							"pm.test(\"Animal = dog\", function () {\r",
+							"    pm.expect(response[1].name).equal(\"dog\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{PROTOCOL}}://{{URL}}/petclinic/api/pettypes"
+			},
+			"response": []
+		},
+		{
+			"name": "GETpets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d1668307-ef32-4796-a5ab-0d75c9cca224",
+						"exec": [
+							"//Respuesta OK\r",
+							"pm.test(\"200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Se almacena la info en la variable jsonData\r",
+							"var response = pm.response.json();\r",
+							"\r",
+							"\r",
+							"//Nombre animal\r",
+							"pm.test(\"cat name = Leo\", function () {\r",
+							"    pm.expect(response[0].name).equal(\"Leo\");\r",
+							"});\r",
+							"\r",
+							"//Nombre animal\r",
+							"pm.test(\"hamster name = Basil\", function () {\r",
+							"    pm.expect(response[1].name).equal(\"Basil\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{PROTOCOL}}://{{URL}}/petclinic/api/pets"
+			},
+			"response": []
+		},
+		{
+			"name": "GETpetByTypeId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e0eeb92d-cb3d-432e-b49b-43af21083d96",
+						"exec": [
+							"//Respuesta OK\r",
+							"pm.test(\"200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Se almacena la info en la variable jsonData\r",
+							"var response = pm.response.json();\r",
+							"\r",
+							"\r",
+							"//Nombre animal\r",
+							"pm.test(\"Animal with id=1 equals cat\", function () {\r",
+							"    pm.expect(response.name).equal(\"cat\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{PROTOCOL}}://{{URL}}/petclinic/api/pettypes/1"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
